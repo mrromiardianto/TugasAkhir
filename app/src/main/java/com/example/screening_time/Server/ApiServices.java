@@ -32,6 +32,11 @@ public interface ApiServices {
             @Field("kata_pengingat") String kata_pengingat
     );
 
+    @POST("getimei.php")
+    Call<ResponseBody> CheckImei(
+            @Field("imei") String imei
+    );
+
 //    @GET("tampilapk.php/{imei}")
 //    //function baru
 //    Call<Response_aplikasi> tampil_aplikasi(
