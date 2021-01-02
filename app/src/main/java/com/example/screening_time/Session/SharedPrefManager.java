@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPrefManager {
-
-
     public static final String SP_LOGIN_APP = "SollarCell";
     public static final String SP_NAMA = "spNama";
     public static final String SP_EMAIL = "spEmail";

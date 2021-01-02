@@ -31,7 +31,7 @@ public interface ApiServices {
             @Field("role") String role,
             @Field("kata_pengingat") String kata_pengingat
     );
-
+    @FormUrlEncoded
     @POST("getimei.php")
     Call<ResponseBody> CheckImei(
             @Field("imei") String imei

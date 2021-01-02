@@ -41,6 +41,7 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
         ButterKnife.bind(Menu_Login.this);
         ButterKnife.bind(this);
         loading = new ProgressDialog(Menu_Login.this);
+        sharedPrefManager=new SharedPrefManager(this);
         user = new User(Menu_Login.this);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override

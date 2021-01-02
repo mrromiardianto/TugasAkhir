@@ -2,12 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.screening_time">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-    <!--    <uses-permission android:name="android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE"/>-->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" /> <!-- <uses-permission android:name="android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE"/> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -20,12 +19,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SCREENING_TIME">
-        <activity android:name=".Fitur.Menu_Dashboard"></activity>
+        <activity android:name=".Fitur.Anak.Menu_DashboarAnak"></activity>
+        <activity android:name=".Fitur.OrangTua.Menu_Dashboard" />
+        <activity android:name=".Fitur.Menu_Dashboard" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Fitur.Menu_Login" />
-        <activity android:name=".Fitur.Menu_Register"/>
-            <activity android:name=".Fitur.Menu_SplashScreen" >
-
+        <activity android:name=".Fitur.Menu_Register" />
+        <activity android:name=".Fitur.Menu_SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
