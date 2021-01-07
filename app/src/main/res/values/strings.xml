@@ -12,5 +12,13 @@
     <string name="nama">Masukkan Nama</string>
     <string name="no_telpon">Masukkan No Telpon</string>
     <string name="logout">Log Out</string>
+    <string name="daftarapk">Daftar Aplikasi</string>
+    <string name="statistik">Statistik</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="daftarponsel">Daftar Ponsel Terhubung</string>
+    <string name="hubungi">Hubungi Kami</string>
+    <string name="undang">Undang Teman</string>
+    <string name="daftar">Daftar</string>
+
 
 </resources>

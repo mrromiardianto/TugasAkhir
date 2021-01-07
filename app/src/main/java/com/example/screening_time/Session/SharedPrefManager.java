@@ -9,11 +9,15 @@ public class SharedPrefManager {
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_TELPON= "spTelpon";
     public static final String SP_ALAMAT = "spAlamat";
-    public static final String SP_IMEI = "imei";
     public static final String SP_Prov = "prov";
     public static final String SP_Kab = "kab";
     public static final String SP_Status = "status";
     public static final String SP_SUDAH_LOGIN = "SudahLogin";
+    public static final String SP_IMEI = "imei";
+    public static final String password = "password";
+    public static final String id = "id";
+    public static final String kata_pengingat = "kata_pengingat";
+    public static final String role = "role";
 
     //    Quiz jawaban
     public static final String Jawaban1 = "jawaban1";
@@ -197,4 +201,19 @@ public class SharedPrefManager {
     public String getTotal(){
         return sp.getString(Total, "");
     }
+    public String getId(){
+        return sp.getString(id, "");
+    }
+    public String getPassword(){
+        return sp.getString(password, "");
+    }
+    public String getKata_pengingat(){
+        return sp.getString(kata_pengingat, "");
+    }
+    public String getRole(){
+        return sp.getString(role, "");
+    }
+//    public String getPoint1(){
+//        return sp.getString(point1, "");
+//    }
 }

@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.screening_time.Controller.User;
+import com.example.screening_time.Fitur.OrangTua.Menu_Dashboard;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.View.MyUser;
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 public class Menu_Login extends AppCompatActivity implements MyUser {
     @BindView(R.id.email)
     EditText Email;
-    @BindView(R.id.password)
+    @BindView(R.id.Password)
     EditText Password;
     @BindView(R.id.login)
     Button Login;
@@ -43,15 +43,27 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
         loading = new ProgressDialog(Menu_Login.this);
         sharedPrefManager=new SharedPrefManager(this);
         user = new User(Menu_Login.this);
+//        Toast.makeText(this, ""+sharedPrefManager.getSudahLogin(), Toast.LENGTH_SHORT).show();
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Checklogin();
             }
         });
+        Check_Session();
 
 
     }
+
+    private void Check_Session() {
+        if ( sharedPrefManager.getSudahLogin()) {
+//            Toast.makeText(this, "ffff", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Menu_Login.this, Menu_Dashboard.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
+    }
+
     private void Checklogin() {
         String password=Password.getText().toString();
         if (password.equals("")){
@@ -91,18 +103,22 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
 
 
     @Override
-    public void berhasilregister() {
+    public void berhasilregister(String berhasil, String id, String imei, String email, String password, String role, String kata_pengingat) {
+        loading.dismiss();
+        sharedPrefManager.saveSPString(SharedPrefManager.id,id );
+        sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
+        sharedPrefManager.saveSPString(SharedPrefManager.password,password);
+        sharedPrefManager.saveSPString(SharedPrefManager.role, role);
+        sharedPrefManager.saveSPString(SharedPrefManager.kata_pengingat, kata_pengingat);
+        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
         gotoMasuk();
-
     }
 
     @Override
     public void berhasilregister(String Pesan) {
         loading.dismiss();
-        Toast.makeText(this, ""+ Pesan, Toast.LENGTH_SHORT).show();
-        gotoMasuk();
-
-
+        Toast.makeText(this, Pesan, Toast.LENGTH_SHORT).show();
 
 
     }
@@ -116,9 +132,22 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
 
     @Override
     public void nointernet(String Pesan) {
+        loading.dismiss();
+        Toast.makeText(this, Pesan, Toast.LENGTH_SHORT).show();
 
     }
+    @Override
+    public void saveuser(String id, String imei, String email, String password, String role, String kata_pengingat){
+        loading.dismiss();
+        sharedPrefManager.saveSPString(SharedPrefManager.id,id );
+        sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
+        sharedPrefManager.saveSPString(SharedPrefManager.password,password);
+        sharedPrefManager.saveSPString(SharedPrefManager.role, role);
+        sharedPrefManager.saveSPString(SharedPrefManager.kata_pengingat, kata_pengingat);
+        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+        gotoMasuk();
 
-    private class Checklogin {
+
     }
 }

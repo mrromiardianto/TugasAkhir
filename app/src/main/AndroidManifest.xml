@@ -11,6 +11,10 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW " />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
 
     <application
         android:allowBackup="true"
@@ -19,12 +23,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SCREENING_TIME">
-        <activity android:name=".Fitur.Anak.Menu_DashboarAnak"></activity>
+        <activity android:name=".Fitur.OrangTua.Sinkronisasi_Ponsel"></activity>
+        <activity android:name=".Fitur.OrangTua.Undang" />
+        <activity android:name=".Fitur.OrangTua.Hubungi" />
+        <activity android:name=".Fitur.OrangTua.Pengaturan" />
+        <activity android:name=".Fitur.OrangTua.Daftar_Ponsel" />
+        <activity android:name=".Fitur.OrangTua.Statistik" />
+        <activity android:name=".Fitur.OrangTua.Daftar_Aplikasi" />
+        <activity android:name=".Fitur.Anak.Menu_DashboarAnak" />
         <activity android:name=".Fitur.OrangTua.Menu_Dashboard" />
         <activity android:name=".Fitur.Menu_Dashboard" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Fitur.Menu_Login" />
         <activity android:name=".Fitur.Menu_Register" />
+        <activity android:name=".Utils.Portrait"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".Fitur.Menu_SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

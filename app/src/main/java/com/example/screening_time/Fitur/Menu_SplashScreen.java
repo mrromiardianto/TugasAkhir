@@ -11,9 +11,12 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.screening_time.Controller.Device;
+import com.example.screening_time.Model.Model_Device;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.View.MyDevice;
+
+import java.util.List;
 
 public class Menu_SplashScreen extends AppCompatActivity implements MyDevice{
     SharedPrefManager sharedPrefManager;
@@ -26,7 +29,7 @@ public class Menu_SplashScreen extends AppCompatActivity implements MyDevice{
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_menu__splash_screen);
-        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
         sharedPrefManager=new SharedPrefManager(this);
         loading=new ProgressDialog(this);
         device=new Device(this);
@@ -39,6 +42,11 @@ public class Menu_SplashScreen extends AppCompatActivity implements MyDevice{
     }
     public void checkimei(String Imei){
         device.CheckImei(Imei);
+    }
+
+    @Override
+    public void truedata(List<Model_Device> devices) {
+
     }
 
     @Override

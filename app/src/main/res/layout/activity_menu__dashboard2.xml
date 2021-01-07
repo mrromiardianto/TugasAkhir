@@ -1,9 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#193446"
     tools:context=".Fitur.OrangTua.Menu_Dashboard">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/logo_apk"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:layout_marginTop="20dp"
+                android:textSize="30dp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="Daftar_Aplikasi"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="OnClick">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/daftarapk"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daftarapk"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:onClick="Statistik"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="OnClick">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/statistik"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/statistik"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="Daftar_Ponsel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="OnClick">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ponsel"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daftarponsel"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="Pengaturan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="OnClick"/>
+
+        <LinearLayout
+            android:onClick="Undang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="OnClick"/>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

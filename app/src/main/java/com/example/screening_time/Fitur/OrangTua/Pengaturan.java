@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.screening_time.R;
+
 public class Pengaturan extends AppCompatActivity {
 
     @Override

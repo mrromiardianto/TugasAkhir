@@ -4,6 +4,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.screening_time.Server.InitRetrofit;
+import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.View.MyUser;
 
 import org.json.JSONException;
@@ -18,6 +19,7 @@ import retrofit2.Response;
 
 public class User {
     MyUser myUser;
+    SharedPrefManager sharedPrefManager;
 
     public User (MyUser myUser){
         this.myUser = myUser;
@@ -35,6 +37,7 @@ public class User {
                         if (jsonRESULTS.getString("success").equals("true")){
                             Log.d("response api", jsonRESULTS.toString());
                             String Berhasil=jsonRESULTS.getString("message");
+
                             myUser.berhasilregister(Berhasil);
                         } else {
                             try {
@@ -97,6 +100,14 @@ public class User {
                         if (jsonRESULTS.getString("success").equals("true")){
                             Log.d("response api", jsonRESULTS.toString());
                             String Berhasil=jsonRESULTS.getString("message");
+//                            String Berhasil=jsonRESULTS.getString("message");
+                            String id = jsonRESULTS.getString("id");
+                            String imei = jsonRESULTS.getString("imei");
+                            String email = jsonRESULTS.getString("email");
+                            String password = jsonRESULTS.getString("password");
+                            String role = jsonRESULTS.getString("role");
+                            String kata_pengingat = jsonRESULTS.getString("kata_pengingat");
+                            myUser.berhasilregister(Berhasil,id, imei, email, password,role, kata_pengingat);
                             myUser.berhasilregister(Berhasil);
                         } else {
                             try {

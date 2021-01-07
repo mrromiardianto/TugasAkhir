@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#193446"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fitur.Menu_Login">>
@@ -31,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                untuk logo-->
+<!--                untuk logo&ndash;&gt;-->
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -39,6 +41,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/email"
+                        android:textSize="17dp"
+                        android:textColorHint="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/insertemail" />
@@ -60,12 +64,14 @@
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/Password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/insertpassword"
-                        android:inputType="textPassword" />
-
+                        android:backgroundTintMode="@color/mainColor"
+                        android:hint="@string/kata_pengingat"
+                        android:inputType="textPassword"
+                        android:textSize="15sp"
+                        tools:targetApi="lollipop" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

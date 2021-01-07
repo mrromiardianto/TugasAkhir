@@ -108,7 +108,7 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
     }
 
     @Override
-    public void berhasilregister() {
+    public void berhasilregister(String berhasil, String id, String imei, String email, String password, String role, String kata_pengingat) {
 
     }
 
@@ -131,6 +131,11 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
     public void nointernet(String Pesan){
         Toast.makeText(this, ""+Pesan, Toast.LENGTH_SHORT).show();
         loading.dismiss();
+
+    }
+
+    @Override
+    public void saveuser(String id, String imei, String email, String password, String role, String kata_pengingat) {
 
     }
 }

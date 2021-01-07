@@ -2,6 +2,8 @@ package com.example.screening_time.Server;
 
 //import com.example.latihan.Respon.Response_aplikasi;
 
+import com.example.screening_time.Response.Response_Device;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -37,9 +39,18 @@ public interface ApiServices {
             @Field("imei") String imei
     );
 
-//    @GET("tampilapk.php/{imei}")
-//    //function baru
-//    Call<Response_aplikasi> tampil_aplikasi(
-//        @Query("imei") String imei
-//    );
+    @GET("get_sinkron.php/{email}")
+    //function baru
+    Call<Response_Device> getSikron(
+        @Query("email") String email
+    );
+
+    @FormUrlEncoded
+    //memanggil file text editor (sublime)
+    @POST("sinkron_ponsel.php")
+    Call<ResponseBody> addsinkron(
+            @Field("imei") String imei,
+            @Field("email") String email
+    );
+
 }
