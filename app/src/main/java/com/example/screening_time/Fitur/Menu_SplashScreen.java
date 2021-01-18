@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.screening_time.Controller.Device;
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.View.MyDevice;
@@ -65,6 +66,12 @@ public class Menu_SplashScreen extends AppCompatActivity implements MyDevice{
         loading.dismiss();
         Toast.makeText(this, Message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void suksesgetdata(List<Model_tugas> tugases) {
+
+    }
+
     public void GotoLogin(){
         Intent i=new Intent(Menu_SplashScreen.this,Menu_Login.class);
         startActivity(i);

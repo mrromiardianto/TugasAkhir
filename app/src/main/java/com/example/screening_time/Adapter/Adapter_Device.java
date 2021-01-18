@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.screening_time.Fitur.Anak.Menu_DashboarAnak;
+import com.example.screening_time.Fitur.OrangTua.Jadwal_Aplikasi;
+import com.example.screening_time.Fitur.OrangTua.Laporan_Tugas;
+import com.example.screening_time.Fitur.OrangTua.Statistik;
+import com.example.screening_time.Fitur.OrangTua.Tugas;
 import com.example.screening_time.Model.Model_Device;
 import com.example.screening_time.R;
 
@@ -54,6 +59,47 @@ public class Adapter_Device extends RecyclerView.Adapter<Adapter_Device.MyViewHo
                 context.startActivity(varIntent);
             }
         });
+
+        holder.Jadwal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent varIntent = new Intent(context, Jadwal_Aplikasi.class);
+                varIntent.putExtra("imei", menu.get(position).getImei());
+               context.startActivity(varIntent);
+
+            }
+        });
+
+        holder.Statistik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent varIntent = new Intent(context, Statistik.class);
+                varIntent.putExtra("imei", menu.get(position).getImei());
+                context.startActivity(varIntent);
+
+            }
+        });
+
+        holder.Tugas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent varIntent = new Intent(context, Tugas.class);
+                varIntent.putExtra("imei", menu.get(position).getImei());
+                context.startActivity(varIntent);
+
+            }
+        });
+
+        holder.LaporanTugas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent varIntent = new Intent(context, Laporan_Tugas.class);
+                varIntent.putExtra("imei", menu.get(position).getImei());
+                context.startActivity(varIntent);
+
+            }
+        });
+
     }
     @Override
     public int getItemCount() {
@@ -63,6 +109,18 @@ public class Adapter_Device extends RecyclerView.Adapter<Adapter_Device.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imei)
         TextView imei;
+        @BindView(R.id.jadwal)
+        LinearLayout Jadwal;
+        @BindView(R.id.statistik)
+        LinearLayout Statistik;
+        @BindView(R.id.tugas)
+        LinearLayout Tugas;
+        @BindView(R.id.laporantugas)
+        LinearLayout LaporanTugas;
+
+
+
+
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

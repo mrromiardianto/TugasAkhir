@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.screening_time.Controller.Device;
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.Utils.Portrait;
@@ -135,6 +136,12 @@ public class Sinkronisasi_Ponsel extends AppCompatActivity implements MyDevice {
         Toast.makeText(this, Message, Toast.LENGTH_SHORT).show();
 
     }
+
+    @Override
+    public void suksesgetdata(List<Model_tugas> tugases) {
+
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

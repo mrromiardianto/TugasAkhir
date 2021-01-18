@@ -3,6 +3,8 @@ package com.example.screening_time.Server;
 //import com.example.latihan.Respon.Response_aplikasi;
 
 import com.example.screening_time.Response.Response_Device;
+import com.example.screening_time.Response.Response_Jadwal;
+import com.example.screening_time.Response.Response_tugas;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,6 +22,13 @@ public interface ApiServices {
     Call<ResponseBody> userLogin(
             @Field("imei") String imei,
             @Field("password") String password
+    );
+    @FormUrlEncoded
+    @POST("tambah_tugas.php")
+    Call<ResponseBody> addtugas(
+            @Field("imei") String imei,
+            @Field("email") String email,
+            @Field("nama_tugas") String tugas
     );
 
     @FormUrlEncoded
@@ -44,7 +53,11 @@ public interface ApiServices {
     Call<Response_Device> getSikron(
         @Query("email") String email
     );
-
+    @GET("tampil_tugas.php/{imei}")
+        //function baru
+    Call<Response_tugas> gettugas(
+            @Query("imei") String imei
+    );
     @FormUrlEncoded
     //memanggil file text editor (sublime)
     @POST("sinkron_ponsel.php")
@@ -53,4 +66,21 @@ public interface ApiServices {
             @Field("email") String email
     );
 
+    @GET("tampil_jadwal.php/{imei}")
+        //function baru
+    Call<Response_Jadwal> getJadwal(
+            @Query("imei") String imei
+    );
+    @FormUrlEncoded
+    @POST("UpdateJadwal.php")
+    Call<ResponseBody> JadwalUpdate(
+            @Field("imei") String imai,
+            @Field("package") String Package,
+            @Field("status") String status
+    );
+    @FormUrlEncoded
+    @POST("DeleteJadwal.php")
+    Call<ResponseBody> deletejadwal(
+            @Field("id") String id
+    );
 }

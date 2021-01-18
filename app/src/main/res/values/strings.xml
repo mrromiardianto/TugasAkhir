@@ -19,6 +19,14 @@
     <string name="hubungi">Hubungi Kami</string>
     <string name="undang">Undang Teman</string>
     <string name="daftar">Daftar</string>
+    <string name="tugas">Tugas</string>
+    <string name="laporantugas">Laporan Tugas</string>
+    <string name="jadwalaplikasi">Jadwal Aplikasi</string>
+    <string name="masukkantugas">Masukkan Tugas</string>
+    <string name="daftartugas">DAFTAR TUGAS</string>
+    <string name="tambahtugas">TAMBAHKAN</string>
+
+
 
 
 </resources>

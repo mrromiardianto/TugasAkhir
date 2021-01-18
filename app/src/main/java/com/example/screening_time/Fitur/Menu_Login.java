@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.screening_time.Controller.User;
+import com.example.screening_time.Fitur.OrangTua.Daftar_Ponsel;
 import com.example.screening_time.Fitur.OrangTua.Menu_Dashboard;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
@@ -58,7 +59,7 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
     private void Check_Session() {
         if ( sharedPrefManager.getSudahLogin()) {
 //            Toast.makeText(this, "ffff", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(Menu_Login.this, Menu_Dashboard.class)
+            startActivity(new Intent(Menu_Login.this, Daftar_Ponsel.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
             finish();
         }
@@ -92,7 +93,7 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
 //        finish();
 //    }
     private void gotoMasuk(){
-        Intent intent =new Intent(Menu_Login.this, Menu_Dashboard.class);
+        Intent intent =new Intent(Menu_Login.this, Daftar_Ponsel.class);
         startActivity(intent);
         finish();
     }
