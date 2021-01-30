@@ -41,7 +41,7 @@ public class Adapter_Device extends RecyclerView.Adapter<Adapter_Device.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         // Set widget
-        holder.imei.setText(menu.get(position).getImei());
+        holder.imei.setText(menu.get(position).getNama());
 //        holder.harga.setText(menu.get(position).getHarga());
 //        final String urlGambar = InitRetrofit.BASE_URL+"../Images/" + menu.get(position).getFoto();
 //        Picasso.with(context).load(urlGambar).into(holder.gambarmenu);
