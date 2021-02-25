@@ -26,6 +26,123 @@
     <string name="masukkantugas">Masukkan Tugas</string>
     <string name="daftartugas">DAFTAR TUGAS</string>
     <string name="tambahtugas">TAMBAHKAN</string>
+
+    <string name="jam_mulai">Masukan Jam Mulai Aplikasi</string>
+    <string name="jam_akhir">Masukan Jam Akhir Aplikasi</string>
+    <string name="in">Masuk</string>
+<!--    <string name="daftar">Daftar</string>-->
+    <string name="reset">Reset Password</string>
+    <string name="ingat">Ingat</string>
+    <string name="Password">Masukan Password</string>
+    <string name="NewPassword">Masukan Password Baru</string>
+    <string name="Pengingat">Masukan Kata Pengingat</string>
+    <string name="newPengingat">Masukan Kata Pengingat Baru</string>
+    <string name="not_acc">Lupa Password?</string>
+    <string name="Aplikasi">Aplikasi Anda</string>
+    <string name="Quiz">Kerjakan Tugas</string>
+    <string name="Jadwal">Aplikasi Terjadwal</string>
+    <string name="Exit">Keluar</string>
+    <string name="notifikasi">Notifikasi Pengingat</string>
+    <string name="Status">Status Penggunaan</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ovarlay_permission_description">Izinkan Aplikasi TimeUp berjalan di atas aplikasi lain yang Anda gunakan?</string>
+    <string name="usage_data_access_description">Izinkan aplikasi TimeUp untuk memantau aplikasi lain yang Anda gunakan?</string>
+    <string name="title_activity_menu__utama">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="soal">Tugas</string>
+    <string name="jadwal">Jadwal Aplikasi</string>
+    <string name="ss">data</string>
+    <string name="statistic">Statistik Penggunaan Aplikasi</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_quiz">Quiz Questions</string>
+    <string name="question">Question 1. How is the first president of Nigeria?</string>
+    <string name="answer_one">King Ade</string>
+    <string name="answer_two"> olu Obasanjo</string>
+    <string name="answer_three">Jona Goodluck</string>
+    <string name="answer_four"> Atiku Abubakar</string>
+    <string name="next_questions"> Next Question</string>
+    <string name="previous_questions"> Previous Question</string>
+    <string name="sendquestion"> Kirim Jawaban</string>
+    <string name="Requiz"> Ulangi Quiz</string>
+    <string name="device_admin_explanation">For experimentation purposes only</string>
+    <string name="compliant">Your password is compliant!</string>
+    <string name="not_compliant">Your password is not compliant! Submit to my authority!</string>
+    <string name="password_failed">You will never break into this device!</string>
+    <string name="password_success">Congratulations!</string>
     <string-array name="daftarrole">
         <item>Orang Tua</item>
         <item>Anak</item>

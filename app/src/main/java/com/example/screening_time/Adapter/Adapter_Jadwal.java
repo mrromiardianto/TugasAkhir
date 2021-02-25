@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.screening_time.Anak.Features.Menu_ListJadwal;
 import com.example.screening_time.Controller.Device;
 import com.example.screening_time.Model.Item_Jadwal;
 import com.example.screening_time.Model.Model_Device;
@@ -38,6 +39,9 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
     public Adapter_Jadwal(Context context, List<Item_Jadwal> data_menu) {
         this.context = context;
         this.menu= data_menu;
+    }
+
+    public Adapter_Jadwal(Menu_ListJadwal context, List<com.example.screening_time.Anak.Server.Item.Item_Jadwal> jadwal) {
     }
 
     @Override

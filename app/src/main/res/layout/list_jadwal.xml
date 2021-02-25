@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="30dp"
@@ -23,8 +22,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="50dp"
             android:id="@+id/gambar_aplikasi"
-            android:layout_height="50dp"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="50dp"/>
         <TextView
             android:textColor="@color/c_black"
             android:layout_gravity="center"
