@@ -30,6 +30,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Sebagai :"
+                android:layout_marginTop="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/white"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/daftarrole"
+                android:entries="@array/daftarrole"
+                android:padding="15dp">
+
+            </Spinner>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
@@ -104,28 +121,28 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Silahkan Pilih Jenis Akun"
-                android:id="@+id/jenisakun"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:id="@+id/pilihan"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Orang Tua"
-                    android:id="@+id/pilihanA"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Anak"
-                    android:id="@+id/pilihanB"/>
-            </RadioGroup>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Silahkan Pilih Jenis Akun"-->
+<!--                android:id="@+id/jenisakun"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"/>-->
+<!--            <RadioGroup-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:id="@+id/pilihan"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <RadioButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Orang Tua"-->
+<!--                    android:id="@+id/pilihanA"/>-->
+<!--                <RadioButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Anak"-->
+<!--                    android:id="@+id/pilihanB"/>-->
+<!--            </RadioGroup>-->
 
             <LinearLayout
                 android:layout_marginTop="10dp"

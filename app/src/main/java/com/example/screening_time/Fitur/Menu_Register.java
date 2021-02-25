@@ -28,8 +28,8 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
     EditText Repassword;
     @BindView(R.id.kata_pengingat)
     EditText Kata_pengingat;
-    @BindView(R.id.pilihan)
-    RadioGroup Pilihan;
+//    @BindView(R.id.pilihan)
+//    RadioGroup Pilihan;
     @BindView(R.id.btn_register)
     Button Btn_register;
     @BindView(R.id.sudah)
@@ -60,24 +60,24 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
                 cekinputan();
             }
         });
-        Pilihan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                switch (id){
-                    case R.id.pilihanA:
-//                        Toast.makeText(getApplication(), "0", Toast.LENGTH_SHORT).show();
-                        role = "Orang tua";
-                        break;
-                    case R.id.pilihanB:
-//                        Toast.makeText(getApplication(), "1", Toast.LENGTH_SHORT).show();
-                        role = "Anak";
-                        break;
-//                            case R.id.cpp:
-//                                Toast.makeText(getApplication(), "Saya Suka C++", Toast.LENGTH_SHORT).show();
-//                                break;
-                }
-            }
-        });
+//        Pilihan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+////            public void onCheckedChanged(RadioGroup radioGroup, int id) {
+//                switch (id){
+//                    case R.id.pilihanA:
+////                        Toast.makeText(getApplication(), "0", Toast.LENGTH_SHORT).show();
+//                        role = "Orang tua";
+//                        break;
+//                    case R.id.pilihanB:
+////                        Toast.makeText(getApplication(), "1", Toast.LENGTH_SHORT).show();
+//                        role = "Anak";
+//                        break;
+////                            case R.id.cpp:
+////                                Toast.makeText(getApplication(), "Saya Suka C++", Toast.LENGTH_SHORT).show();
+////                                break;
+//                }
+//            }
+//        });
 
 
 

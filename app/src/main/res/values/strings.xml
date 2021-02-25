@@ -26,6 +26,10 @@
     <string name="masukkantugas">Masukkan Tugas</string>
     <string name="daftartugas">DAFTAR TUGAS</string>
     <string name="tambahtugas">TAMBAHKAN</string>
+    <string-array name="daftarrole">
+        <item>Orang Tua</item>
+        <item>Anak</item>
+    </string-array>
 
 
 
