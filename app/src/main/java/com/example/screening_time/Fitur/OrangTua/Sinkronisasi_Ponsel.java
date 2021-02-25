@@ -10,11 +10,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.screening_time.Controller.Device;
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_laporantugas;
 import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
@@ -110,6 +110,11 @@ public class Sinkronisasi_Ponsel extends AppCompatActivity implements MyDevice {
     }
 
     @Override
+    public void listlaporan(List<Model_laporantugas> laporan) {
+
+    }
+
+    @Override
     public void truedata(List<Model_Device> devices) {
 
     }
@@ -141,6 +146,11 @@ public class Sinkronisasi_Ponsel extends AppCompatActivity implements MyDevice {
     public void suksesgetdata(List<Model_tugas> tugases) {
 
     }
+
+//    @Override
+//    public void suksesgetdata(List<Model_laporantugas> tugases) {
+//
+//    }
 
     @Override
     public void onBackPressed() {

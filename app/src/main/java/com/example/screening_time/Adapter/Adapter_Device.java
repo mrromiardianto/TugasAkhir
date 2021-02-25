@@ -49,14 +49,14 @@ public class Adapter_Device extends RecyclerView.Adapter<Adapter_Device.MyViewHo
             @Override
             public void onClick(View view) {
 //
-                Intent varIntent = new Intent(context, Menu_DashboarAnak.class);
+//                Intent varIntent = new Intent(context, Menu_DashboarAnak.class);
 //                varIntent.putExtra("SN", menu.get(position).getSn());
 //                SharedPrefManager sharedPrefManager=new SharedPrefManager(context);
 //                sharedPrefManager.saveSPString(SharedPrefManager.SP_Mac, menu.get(position).getSn());
 //                sharedPrefManager.saveSPString(SharedPrefManager.SP_Prov, menu.get(position).getProvinsi());
 //                sharedPrefManager.saveSPString(SharedPrefManager.SP_Kab, menu.get(position).getKabupaten());
 //                sharedPrefManager.saveSPString(SharedPrefManager.SP_device_channel, menu.get(position).getDevice_channel());
-                context.startActivity(varIntent);
+//                context.startActivity(varIntent);
             }
         });
 

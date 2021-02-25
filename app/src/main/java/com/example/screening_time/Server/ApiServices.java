@@ -4,6 +4,7 @@ package com.example.screening_time.Server;
 
 import com.example.screening_time.Response.Response_Device;
 import com.example.screening_time.Response.Response_Jadwal;
+import com.example.screening_time.Response.Response_laporantugas;
 import com.example.screening_time.Response.Response_tugas;
 
 import okhttp3.ResponseBody;
@@ -82,5 +83,17 @@ public interface ApiServices {
     @POST("DeleteJadwal.php")
     Call<ResponseBody> deletejadwal(
             @Field("id") String id
+    );
+
+    @GET("laporan_tugas.php/{imei}")
+        //function baru
+    Call<Response_laporantugas> getLaporan(
+            @Query("imei") String imei
+    );
+    @FormUrlEncoded
+    @POST("terima_tugas.php")
+    Call<ResponseBody> Terimatugas(
+            @Field("imei") String imai,
+            @Field("package") String Package
     );
 }

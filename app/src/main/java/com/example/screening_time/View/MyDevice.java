@@ -1,11 +1,15 @@
 package com.example.screening_time.View;
 
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_laporantugas;
 import com.example.screening_time.Model.Model_tugas;
 
 import java.util.List;
 
 public interface MyDevice {
+
+    void listlaporan(List<Model_laporantugas> laporan);
+
     void truedata(List<Model_Device> devices);
 
     void ImeiTerdaftar(String Message);

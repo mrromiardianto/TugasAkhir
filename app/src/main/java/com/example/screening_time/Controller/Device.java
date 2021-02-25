@@ -3,8 +3,10 @@ package com.example.screening_time.Controller;
 import android.util.Log;
 
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_laporantugas;
 import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.Response.Response_Device;
+import com.example.screening_time.Response.Response_laporantugas;
 import com.example.screening_time.Response.Response_tugas;
 import com.example.screening_time.Server.ApiServices;
 import com.example.screening_time.Server.InitRetrofit;
@@ -397,5 +399,45 @@ public class Device {
         });
 
 
+    }
+    public void getlaporantugas(String imei){
+        ApiServices api = InitRetrofit.getInstance().getApi();
+        Call<Response_laporantugas> menuCall = api.getLaporan(imei);
+        menuCall.enqueue(new Callback<Response_laporantugas>() {
+            @Override
+            public void onResponse(Call<Response_laporantugas> call, Response<Response_laporantugas> response) {
+                if (response.isSuccessful()){
+                    Log.d("response api", response.body().toString());
+                    List<Model_laporantugas> device= response.body().getLaporanTugas();
+                    boolean status = response.body().isStatus();
+                    if (status){
+                        try {
+                            myDevice.listlaporan(device);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    } else {
+                        try {
+                            String Message="Tidak Ada data";
+                            myDevice.ImeiTidakTerdaftar(Message);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<Response_laporantugas> call, Throwable t) {
+                try {
+                    String Message="Tidak Ada data";
+                    myDevice.NoInternet(Message);
+                    t.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
     }
 }

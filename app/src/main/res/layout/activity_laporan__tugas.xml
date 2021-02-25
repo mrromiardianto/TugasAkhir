@@ -23,7 +23,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/formlaporantugas"
+            android:id="@+id/formtambahtugas"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:gravity="center"
@@ -38,25 +38,17 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:text="@string/laporantugas"/>
-            
+                android:text="@string/laporantugasanak"/>
 
 
 
-            <Button
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/btn_register"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="220dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/m_button"
-                android:text="@string/tambahtugas"
-                android:textAllCaps="false"
-                android:textColor="@color/c_white"
-                android:textSize="17sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:id="@+id/listlaporantugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
 
         </LinearLayout>
 

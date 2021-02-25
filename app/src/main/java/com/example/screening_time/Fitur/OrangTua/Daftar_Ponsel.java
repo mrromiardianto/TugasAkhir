@@ -13,14 +13,13 @@ import android.widget.Toast;
 import com.example.screening_time.Adapter.Adapter_Device;
 import com.example.screening_time.Controller.Device;
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_laporantugas;
 import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.View.MyDevice;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,6 +58,11 @@ public class Daftar_Ponsel extends AppCompatActivity implements MyDevice {
     }
 
     @Override
+    public void listlaporan(List<Model_laporantugas> laporan) {
+
+    }
+
+    @Override
     public void truedata(List<Model_Device> devices){
         loading.dismiss();
         Adapter_Device adapter=new Adapter_Device(this,devices);
@@ -93,6 +97,11 @@ public class Daftar_Ponsel extends AppCompatActivity implements MyDevice {
     public void suksesgetdata(List<Model_tugas> tugases) {
 
     }
+
+//    @Override
+//    public void suksesgetdata(List<Model_laporantugas> tugases) {
+//
+//    }
 
     @Override
     public void onBackPressed() {

@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -13,14 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.screening_time.Controller.Device;
 import com.example.screening_time.Model.Item_Jadwal;
 import com.example.screening_time.Model.Model_Device;
+import com.example.screening_time.Model.Model_laporantugas;
 import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.R;
 import com.example.screening_time.View.MyDevice;
@@ -117,6 +115,11 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
     }
 
     @Override
+    public void listlaporan(List<Model_laporantugas> laporan) {
+
+    }
+
+    @Override
     public void truedata(List<Model_Device> devices) {
 
     }
@@ -140,6 +143,16 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
     public void suksesgetdata(List<Model_tugas> tugases) {
 
     }
+
+//    @Override
+//    public void suksesgetdata(List<Model_tugas> tugases) {
+//
+//    }
+//
+//    @Override
+//    public void suksesgetdata(List<Model_laporantugas> tugases) {
+//
+//    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.Nama_aplikasi)
