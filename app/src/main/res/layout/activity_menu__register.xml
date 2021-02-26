@@ -37,14 +37,12 @@
                 android:layout_marginTop="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/white"/>
-
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/daftarrole"
                 android:entries="@array/daftarrole"
                 android:padding="15dp">
-
             </Spinner>
 
             <LinearLayout
@@ -64,12 +62,7 @@
                         android:hint="@string/insertemail"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-
             </LinearLayout>
-
-
-
-
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"

@@ -7,19 +7,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.screening_time.Controller.User;
 import com.example.screening_time.R;
 import com.example.screening_time.View.MyUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Menu_Register extends AppCompatActivity implements MyUser {
+public class Menu_Register extends AppCompatActivity implements MyUser, AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
     @BindView(R.id.email)
     EditText Email;
     @BindView(R.id.password)
@@ -28,17 +34,15 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
     EditText Repassword;
     @BindView(R.id.kata_pengingat)
     EditText Kata_pengingat;
-//    @BindView(R.id.pilihan)
-//    RadioGroup Pilihan;
     @BindView(R.id.btn_register)
     Button Btn_register;
     @BindView(R.id.sudah)
     Button Sudah;
     String role;
-
     ProgressDialog loading;
-
     User user;
+    @BindView(R.id.daftarrole)
+    Spinner Daftar_role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,27 +64,14 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
                 cekinputan();
             }
         });
-//        Pilihan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-////            public void onCheckedChanged(RadioGroup radioGroup, int id) {
-//                switch (id){
-//                    case R.id.pilihanA:
-////                        Toast.makeText(getApplication(), "0", Toast.LENGTH_SHORT).show();
-//                        role = "Orang tua";
-//                        break;
-//                    case R.id.pilihanB:
-////                        Toast.makeText(getApplication(), "1", Toast.LENGTH_SHORT).show();
-//                        role = "Anak";
-//                        break;
-////                            case R.id.cpp:
-////                                Toast.makeText(getApplication(), "Saya Suka C++", Toast.LENGTH_SHORT).show();
-////                                break;
-//                }
-//            }
-//        });
 
-
-
+        Daftar_role.setOnItemSelectedListener(Menu_Register.this);
+        List<String> categories = new ArrayList<String>();
+        categories.add("Orang tua");
+        categories.add("Anak");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Daftar_role.setAdapter(dataAdapter);
     }
 
     private void cekinputan() {
@@ -136,6 +127,22 @@ public class Menu_Register extends AppCompatActivity implements MyUser {
 
     @Override
     public void saveuser(String id, String imei, String email, String password, String role, String kata_pengingat) {
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        role= parent.getItemAtPosition(position).toString();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
 }

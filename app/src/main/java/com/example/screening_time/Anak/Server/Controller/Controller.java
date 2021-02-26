@@ -30,7 +30,7 @@ public class Controller {
                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
                         if (jsonRESULTS.getString("success").equals("true")){
                             Log.d("response api", jsonRESULTS.toString());
-                            String Imei=jsonRESULTS.getString("Imei");
+//                            String Imei=jsonRESULTS.getString("imei");
                             myController.ImeiTerdaftar(Imei);
                         } else if (jsonRESULTS.getString("success").equals("false")) {
                             try {

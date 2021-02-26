@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -12,28 +13,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+//import com.example.screening_time.Anak.Features.Menu_ListJadwal;
+//import com.example.screening_time.Anak.Features.Menu_SettingJadwal;
+//import com.example.screening_time.Anak.Server.Controller.Controller;
+//import com.example.screening_time.Anak.Server.Controller.MyController;
+//import com.example.screening_time.Anak.Server.Item.Item_Jadwal;
 import com.example.screening_time.Anak.Features.Menu_ListJadwal;
-import com.example.screening_time.Controller.Device;
+import com.example.screening_time.Anak.Features.Menu_SettingJadwal;
+import com.example.screening_time.Anak.Server.Controller.Controller;
+import com.example.screening_time.Anak.Server.Controller.MyController;
 import com.example.screening_time.Model.Item_Jadwal;
-import com.example.screening_time.Model.Model_Device;
-import com.example.screening_time.Model.Model_laporantugas;
-import com.example.screening_time.Model.Model_tugas;
 import com.example.screening_time.R;
-import com.example.screening_time.View.MyDevice;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHolder> implements MyDevice {
+public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHolder> implements MyController {
     Context context;
     List<Item_Jadwal> menu;
     ProgressDialog loading;
-    Device controller;
+    Controller controller;
 
 
     public Adapter_Jadwal(Context context, List<Item_Jadwal> data_menu) {
@@ -41,17 +46,15 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
         this.menu= data_menu;
     }
 
-    public Adapter_Jadwal(Menu_ListJadwal context, List<com.example.screening_time.Anak.Server.Item.Item_Jadwal> jadwal) {
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.list_jadwal, parent, false);
+        MyViewHolder holder = new MyViewHolder(view);
+        return holder;
     }
 
     @Override
-    public Adapter_Jadwal.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list_jadwal, parent, false);
-        Adapter_Jadwal.MyViewHolder holder = new Adapter_Jadwal.MyViewHolder(view);
-        return holder;
-    }
-    @Override
-    public void onBindViewHolder(Adapter_Jadwal.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.nama.setText(menu.get(position).getNama());
         holder.Package.setText(menu.get(position).getJammulai()+"--"+menu.get(position).getJamakhir());
 //        holder.jammulai.setText(menu.get(position).getJammulai());
@@ -68,10 +71,10 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
         holder.upadate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(context, Menu_SettingJadwal.class);
-//                intent.putExtra("Package",menu.get(position).getJsonMemberPackage());
-//                intent.putExtra("Nama",menu.get(position).getNama());
-//                context.startActivity(intent);
+                Intent intent=new Intent(context, Menu_SettingJadwal.class);
+                intent.putExtra("Package",menu.get(position).getJsonMemberPackage());
+                intent.putExtra("Nama",menu.get(position).getNama());
+                context.startActivity(intent);
             }
         });
         holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +110,7 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
         loading.show();
         loading.setMessage("Mohon Tunggu.....");
         loading.setCancelable(false);
-        controller=new Device(this);
+        controller=new Controller(this);
         controller.deletejadwal(id);
 
     }
@@ -119,44 +122,47 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
     }
 
     @Override
-    public void listlaporan(List<Model_laporantugas> laporan) {
-
-    }
-
-    @Override
-    public void truedata(List<Model_Device> devices) {
-
-    }
-
-    @Override
     public void ImeiTerdaftar(String imei) {
 
     }
 
     @Override
-    public void ImeiTidakTerdaftar(String Message) {
+    public void gagalmasuk(String Message) {
+        loading.show();
+        Toast.makeText(context, ""+Message, Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
-    public void NoInternet(String Message) {
+    public void ImeiTidakTerdaftar() {
 
     }
 
     @Override
-    public void suksesgetdata(List<Model_tugas> tugases) {
+    public void berhasilmasuk(String Message) {
+        loading.show();
+        Toast.makeText(context, ""+Message, Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(context, Menu_ListJadwal.class);
+        context.startActivity(intent);
 
     }
 
-//    @Override
-//    public void suksesgetdata(List<Model_tugas> tugases) {
-//
-//    }
-//
-//    @Override
-//    public void suksesgetdata(List<Model_laporantugas> tugases) {
-//
-//    }
+    @Override
+    public void TidakAdaKoneksi(String error_message) {
+        loading.show();
+        Toast.makeText(context, ""+error_message, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void gagalupdate(String pesan) {
+
+    }
+
+    @Override
+    public void berhasilupdate(String pesan) {
+
+    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.Nama_aplikasi)

@@ -40,6 +40,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.screening_time.Anak.Fragment.Menu_Utama;
 import com.example.screening_time.Anak.Server.Controller.Controller;
 import com.example.screening_time.Anak.Server.Controller.MyController;
 import com.example.screening_time.Anak.Server.Koneksi_RMQ;
@@ -50,6 +51,8 @@ import com.example.screening_time.Anak.Utils.AlarmReceiver;
 import com.example.screening_time.Anak.Utils.AppCheckServices;
 import com.example.screening_time.Anak.Utils.AppLockConstants;
 import com.example.screening_time.Anak.Utils.UninstallIntentReceiver;
+import com.example.screening_time.Fitur.Menu_Login;
+import com.example.screening_time.Fitur.Menu_Register;
 import com.example.screening_time.R;
 
 import org.json.JSONObject;
@@ -227,7 +230,7 @@ public class Menu_SplashScreen extends AppCompatActivity implements MyController
         final boolean isPasswordSet = sharedPreferences.getBoolean(AppLockConstants.IS_PASSWORD_SET, false);
 //        if (isPasswordSet) {
 //            Toast.makeText(Menu_SplashScreen.this, ""+isPasswordSet, Toast.LENGTH_SHORT).show();
-            Intent intent =new Intent(Menu_SplashScreen.this,Menu_Masuk.class);
+            Intent intent =new Intent(Menu_SplashScreen.this, Menu_Login.class);
             startActivity(intent);
             finish();
 //        } else {
@@ -247,7 +250,7 @@ public class Menu_SplashScreen extends AppCompatActivity implements MyController
     @Override
     public void ImeiTidakTerdaftar(){
         loading.dismiss();
-        Intent intent =new Intent(Menu_SplashScreen.this,Menu_RegisterPassword.class);
+        Intent intent =new Intent(Menu_SplashScreen.this, Menu_Register.class);
         startActivity(intent);
         finish();
     }

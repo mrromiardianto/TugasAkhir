@@ -1,13 +1,15 @@
 package com.example.screening_time.Anak.Server;
+import com.example.screening_time.UrlServer.Url;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InitRetrofit {
-    public  static final String BASE_IP="http://192.168.43.80";
+//    public  static final String BASE_IP="http://192.168.43.80";
 //    public  static final  String BASE_IP="http://172.31.0.30";
 //   public static final String BASE_URL ="http://172.31.0.74/Api_TimeUP/Fungsi/";
 //    public static final String BASE_URL =BASE_IP+"/Api_TimeUP/Fungsi/";
-    public static final String BASE_URL =BASE_IP+"/Api_Anak/Fungsi/";
+    public static final String BASE_URL = Url.IP +"Skripsi/Fungsi/";
 //    public  static final String Url_Provinsi="http://www.emsifa.com/api-wilayah-indonesia/api/";
     private static InitRetrofit mInstance;
     private Retrofit retrofit;

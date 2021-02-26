@@ -48,12 +48,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingRight="10dp"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            tools:ignore="VectorDrawableCompat" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Jam_mulai"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTintMode="@color/mainColor"
@@ -77,12 +79,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingRight="10dp"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            tools:ignore="VectorDrawableCompat" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Jam_akhir"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTintMode="@color/mainColor"

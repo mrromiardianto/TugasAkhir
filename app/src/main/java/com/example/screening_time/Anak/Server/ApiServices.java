@@ -15,9 +15,9 @@ import retrofit2.http.Query;
 
 public interface ApiServices {
     @FormUrlEncoded
-    @POST("CekImei.php")
+    @POST("getimei.php")
     Call<ResponseBody> ChexEmai(
-            @Field("Imei") String emai
+            @Field("imei") String emai
     );
     @FormUrlEncoded
     @POST("Masuk.php")
@@ -36,7 +36,7 @@ public interface ApiServices {
     );
 
     @FormUrlEncoded
-    @POST("SimpanJadwal.php")
+    @POST("simpanjadwal.php")
     Call<ResponseBody> SimpanJadwal(
             @Field("imei") String imei,
             @Field("jammulai") String jammulai,
@@ -69,7 +69,7 @@ public interface ApiServices {
             @Field("password") String password
     );
 
-    @GET("TampilJadwal.php/{imei}")
+    @GET("tampil_jadwal.php/{imei}")
     Call<Response_Jadwal> tampil_jadwal(
             @Query("imei") String imei
             );

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.screening_time.Anak.Features.Menu_Statistic;
 import com.example.screening_time.Fitur.Anak.Menu_DashboarAnak;
 import com.example.screening_time.Fitur.OrangTua.Jadwal_Aplikasi;
 import com.example.screening_time.Fitur.OrangTua.Laporan_Tugas;
@@ -73,7 +74,7 @@ public class Adapter_Device extends RecyclerView.Adapter<Adapter_Device.MyViewHo
         holder.Statistik.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent varIntent = new Intent(context, Statistik.class);
+                Intent varIntent = new Intent(context, Menu_Statistic.class);
                 varIntent.putExtra("imei", menu.get(position).getImei());
                 context.startActivity(varIntent);
 

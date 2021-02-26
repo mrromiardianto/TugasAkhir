@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.screening_time.Adapter.Adapter_Jadwal;
 import com.example.screening_time.Anak.Fragment.Menu_Utama;
+import com.example.screening_time.Anak.Server.Adapter.Adapter_Jadwal;
 import com.example.screening_time.Anak.Server.ApiServices;
 import com.example.screening_time.Anak.Server.InitRetrofit;
 import com.example.screening_time.Anak.Server.Item.Item_Jadwal;
@@ -51,6 +51,7 @@ public class Menu_ListJadwal extends AppCompatActivity {
     }
 
     private void tampil_jadwal() {
+//        Toast.makeText(this, sharedPrefManager.getSP_IMEI(), Toast.LENGTH_SHORT).show();
         ApiServices api = InitRetrofit.getInstance().getApi();
         Call<Response_Jadwal> menuCall = api.tampil_jadwal(sharedPrefManager.getSP_IMEI());
         menuCall.enqueue(new Callback<Response_Jadwal>() {
