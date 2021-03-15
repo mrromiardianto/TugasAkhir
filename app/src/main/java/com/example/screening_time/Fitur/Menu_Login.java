@@ -10,11 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.screening_time.Anak.Features.Menu_Dashboard;
 import com.example.screening_time.Anak.Features.Menu_SplashScreen;
 import com.example.screening_time.Anak.Fragment.Menu_Utama;
 import com.example.screening_time.Controller.User;
 import com.example.screening_time.Fitur.OrangTua.Daftar_Ponsel;
-import com.example.screening_time.Fitur.OrangTua.Menu_Dashboard;
 import com.example.screening_time.R;
 import com.example.screening_time.Session.SharedPrefManager;
 import com.example.screening_time.View.MyUser;
@@ -62,7 +62,7 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
         if ( sharedPrefManager.getSudahLogin()) {
             String Role=sharedPrefManager.getRole();
             if (Role.equals("Anak")){
-                startActivity(new Intent(Menu_Login.this, Menu_Utama.class)
+                startActivity(new Intent(Menu_Login.this,Menu_Utama.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                 finish();
             }else {

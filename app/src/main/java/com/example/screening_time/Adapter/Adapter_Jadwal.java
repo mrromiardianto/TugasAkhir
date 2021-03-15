@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 //import com.example.screening_time.Anak.Server.Controller.Controller;
 //import com.example.screening_time.Anak.Server.Controller.MyController;
 //import com.example.screening_time.Anak.Server.Item.Item_Jadwal;
+import com.example.screening_time.Anak.Features.Menu_EditJadwal;
 import com.example.screening_time.Anak.Features.Menu_ListJadwal;
 import com.example.screening_time.Anak.Features.Menu_SettingJadwal;
 import com.example.screening_time.Anak.Server.Controller.Controller;
@@ -71,9 +72,10 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
         holder.upadate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, Menu_SettingJadwal.class);
+                Intent intent=new Intent(context, Menu_EditJadwal.class);
                 intent.putExtra("Package",menu.get(position).getJsonMemberPackage());
                 intent.putExtra("Nama",menu.get(position).getNama());
+                intent.putExtra("Imei",menu.get(position).getImei());
                 context.startActivity(intent);
             }
         });

@@ -96,6 +96,7 @@ public class Menu_PopUp extends AppCompatActivity implements MyController {
 
     private void GotoQuiz() {
         Package=getIntent().getExtras().getString("PACKAGE");
+        sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA,Package);
         Intent i=new Intent(Menu_PopUp.this,Menu_Tugas.class);
         i.putExtra("PACKAGE",Package );
         startActivity(i);

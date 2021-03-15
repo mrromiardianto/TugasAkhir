@@ -107,7 +107,8 @@ public class Menu_Statistic extends AppCompatActivity {
 
     }
     private void Tampil_Usage(String Tanggal) {
-        String imei=getIntent().getStringExtra("imei");;
+        String imei=getIntent().getExtras().getString("imei");
+        Toast.makeText(this, imei, Toast.LENGTH_SHORT).show();
         ApiServices api = InitRetrofit.getInstance().getApi();
         Call<Response_Jadwal> menuCall = api.tampil_usage(imei,Tanggal);
         menuCall.enqueue(new Callback<Response_Jadwal>() {

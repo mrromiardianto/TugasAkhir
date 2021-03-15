@@ -30,7 +30,7 @@
     <string name="jam_mulai">Masukan Jam Mulai Aplikasi</string>
     <string name="jam_akhir">Masukan Jam Akhir Aplikasi</string>
     <string name="in">Masuk</string>
-<!--    <string name="daftar">Daftar</string>-->
+    <!--    <string name="daftar">Daftar</string>-->
     <string name="reset">Reset Password</string>
     <string name="ingat">Ingat</string>
     <string name="Password">Masukan Password</string>
@@ -147,8 +147,6 @@
         <item>Orang Tua</item>
         <item>Anak</item>
     </string-array>
-
-
 
 
 </resources>

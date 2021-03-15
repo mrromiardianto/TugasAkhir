@@ -506,4 +506,53 @@ public class Controller {
         });
 
     }
+    public void Edit_Jadwal(String imei, String jamMulai, String jamAkhir, String nama, String aPackage){
+        Call<ResponseBody> call = InitRetrofit.getInstance().getApi().SimpanEditJadwal(imei,jamMulai,jamAkhir,nama,aPackage);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        if (jsonRESULTS.getString("success").equals("true")){
+                            Log.d("response api", jsonRESULTS.toString());
+                            String message=jsonRESULTS.getString("message");
+                            myController.berhasilmasuk(message);
+                        } else if (jsonRESULTS.getString("success").equals("false")) {
+                            try {
+                                Log.d("response api", jsonRESULTS.toString());
+                                String message=jsonRESULTS.getString("message");
+                                myController.gagalmasuk(message);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        String error_message ="Tidak Ada Koneksi Internet/Masalah Server";
+                        myController.TidakAdaKoneksi(error_message);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.v("debug", "onFailure: ERROR > " + t.toString());
+                try {
+                    String error_message ="Tidak Ada Koneksi Internet/Masalah Server";
+                    myController.TidakAdaKoneksi(error_message);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+    }
 }

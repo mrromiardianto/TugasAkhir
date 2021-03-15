@@ -45,7 +45,16 @@ public interface ApiServices {
             @Field("packeg") String packeg
     );
     @FormUrlEncoded
-    @POST("cekJadwal.php")
+    @POST("edit_jadwal.php")
+    Call<ResponseBody> SimpanEditJadwal(
+            @Field("imei") String imei,
+            @Field("jammulai") String jammulai,
+            @Field("jamakhir") String jamakhir,
+            @Field("nama") String nama,
+            @Field("packeg") String packeg
+    );
+    @FormUrlEncoded
+    @POST("cek_jadwal.php")
     Call<ResponseBody> RequestJadwal(
             @Field("imei") String Imai,
             @Field("package") String Package
@@ -104,8 +113,16 @@ public interface ApiServices {
             @Field("nama") String nama
     );
 
-    @GET("tampiltugas.php/{imei}")
+    @GET("tampil_tugas.php/{imei}")
     Call<Response_Tugas> tampil_tugas(
             @Query("imei") String imei
+    );
+    @FormUrlEncoded
+    @POST("kirim_tugas.php")
+    Call<ResponseBody> KirimTugas(
+            @Field("id_tugas") String id_tugas,
+            @Field("imei") String imei,
+            @Field("file") String file,
+            @Field("package") String pakage
     );
 }

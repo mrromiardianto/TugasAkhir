@@ -3,12 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.screening_time">
 
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-    <!--    <uses-permission android:name="android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE"/>-->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" /> <!-- <uses-permission android:name="android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE"/> -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -19,13 +25,11 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-    <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="29"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <uses-feature
         android:name="android.software.device_admin"
-        android:required="true"/>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -35,7 +39,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SCREENING_TIME">
-        <activity android:name=".Fitur.OrangTua.Laporan_Tugas"></activity>
+        <activity android:name=".Anak.Features.Menu_EditJadwal"></activity>
+        <activity android:name=".Fitur.OrangTua.Laporan_Tugas" />
         <activity android:name=".Fitur.OrangTua.Tugas" />
         <activity android:name=".Fitur.OrangTua.Jadwal_Aplikasi" />
         <activity android:name=".Fitur.OrangTua.Sinkronisasi_Ponsel" />
@@ -51,7 +56,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Fitur.Menu_Login" />
         <activity android:name=".Fitur.Menu_Register" />
-        <activity android:name=".Anak.Features.Menu_KerjakanTugas"/>
+        <activity android:name=".Anak.Features.Menu_KerjakanTugas" />
         <activity android:name=".Anak.Features.Menu_UploadTugas" />
         <activity android:name=".Anak.Features.Menu_Tugas" />
         <activity android:name=".Anak.Features.Menu_Profile" />
@@ -60,6 +65,7 @@
         <service
             android:name=".Anak.Utils.AppCheckServices"
             android:exported="false" />
+
         <activity
             android:name=".Utils.Portrait"
             android:screenOrientation="fullSensor"
@@ -153,13 +159,12 @@
             android:excludeFromRecents="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
-<!--        <activity-->
-<!--            android:name=".Anak.Features.Menu_Quiz"-->
-<!--            android:excludeFromRecents="true"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:screenOrientation="portrait"-->
-<!--            android:theme="@style/Theme.AppCompat" />-->
+            android:theme="@style/Theme.AppCompat" /> <!-- <activity -->
+        <!-- android:name=".Anak.Features.Menu_Quiz" -->
+        <!-- android:excludeFromRecents="true" -->
+        <!-- android:label="@string/app_name" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/Theme.AppCompat" /> -->
         <activity
             android:name=".Anak.Features.Menu_Statistic"
             android:excludeFromRecents="true"
