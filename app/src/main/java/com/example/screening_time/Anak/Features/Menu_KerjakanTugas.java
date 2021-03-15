@@ -248,6 +248,10 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
                             String message=jsonRESULTS.getString("message");
                             Toast.makeText(Menu_KerjakanTugas.this, message, Toast.LENGTH_SHORT).show();
                             Loading.dismiss();
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            startActivity(intent);
+                            finish();
                         } else if (jsonRESULTS.getString("success").equals("false")) {
                             try {
                                 Loading.dismiss();

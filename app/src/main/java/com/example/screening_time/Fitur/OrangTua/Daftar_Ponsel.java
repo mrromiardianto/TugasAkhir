@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.screening_time.Adapter.Adapter_Device;
 import com.example.screening_time.Controller.Device;
+import com.example.screening_time.Fitur.Menu_Login;
 import com.example.screening_time.Model.Model_Device;
 import com.example.screening_time.Model.Model_laporantugas;
 import com.example.screening_time.Model.Model_tugas;
@@ -109,9 +110,17 @@ public class Daftar_Ponsel extends AppCompatActivity implements MyDevice {
         back();
     }
 
+
     private void back() {
         Intent menuSebelumnya = new Intent(this, Menu_Dashboard.class);
         startActivity(menuSebelumnya);
+        finish();
+    }
+
+    public void Logout(View view) {
+        SharedPrefManager sharedPrefManager=new SharedPrefManager(this);
+        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+        startActivity(new Intent(this, Menu_Login.class));
         finish();
     }
 }

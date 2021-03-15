@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.screening_time.Anak.Fragment.Menu_Utama;
 import com.example.screening_time.Anak.Session.SharedPrefManager;
+import com.example.screening_time.Fitur.Menu_Login;
 import com.example.screening_time.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -51,6 +53,13 @@ public class Menu_Profile extends AppCompatActivity {
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Intent intent=new Intent(Menu_Profile.this, Menu_Utama.class);
         startActivity(intent);
+        finish();
+    }
+
+    public void Logout(View view) {
+        com.example.screening_time.Session.SharedPrefManager sharedPrefManager=new com.example.screening_time.Session.SharedPrefManager(this);
+        sharedPrefManager.saveSPBoolean(com.example.screening_time.Session.SharedPrefManager.SP_SUDAH_LOGIN, false);
+        startActivity(new Intent(this, Menu_Login.class));
         finish();
     }
 }
