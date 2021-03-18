@@ -64,8 +64,8 @@ public class AppCheckServices extends Service implements MyController {
         if (sharedPreference != null) {
             pakageName = sharedPreference.getLocked(context);
         }
-        controller=new Controller(this);
-        sharedPrefManager=new SharedPrefManager(context);
+        controller = new Controller(this);
+        sharedPrefManager = new SharedPrefManager(context);
 //        timer = new Timer("AppCheckServices");
 //        timer.schedule(updateTask, 1000L, 1000L);
 //        windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -74,17 +74,21 @@ public class AppCheckServices extends Service implements MyController {
         int LAYOUT_FLAG;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        } else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        }else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        }else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        }else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        }else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        }else {
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BASE){
+                LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+      }else {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
         }
 ////        try {
@@ -159,14 +163,24 @@ public class AppCheckServices extends Service implements MyController {
                                 intent.putExtra("PACKAGE", previousApp);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
+
+//                                startActivity();
                                 Toast.makeText(context, "HAYO MAU NGAPAIN?", Toast.LENGTH_SHORT).show();
-//                                finish();
+                                Intent i =new Intent(context, Menu_PopUp.class);
+                                i.putExtra("PACKAGE", previousApp);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(i);
+
 //                                previousApp = currentApp;
 //                                showUnlockDialog();
 
 //                                Toast.makeText(context, ""+previousApp, Toast.LENGTH_SHORT).show();
                             }else {
                                 Log.d("AppCheckSErvice", "currentApp matches previous App");
+                                Intent intent =new Intent(context, Menu_PopUp.class);
+                                intent.putExtra("PACKAGE", previousApp);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
 //                                previousApp=currentApp;
 ////                Toast.makeText(context, ""+previousApp, Toast.LENGTH_SHORT).show();
 //                                String Mpakage=previousApp;

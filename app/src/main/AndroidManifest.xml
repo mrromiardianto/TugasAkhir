@@ -54,10 +54,10 @@
         <activity android:name=".Fitur.OrangTua.Menu_Dashboard" />
         <activity android:name=".Fitur.Menu_Dashboard" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Fitur.Menu_Login" />
-        <activity android:name=".Fitur.Menu_Register" />
-        <activity android:name=".Anak.Features.Menu_KerjakanTugas" />
-        <activity android:name=".Anak.Features.Menu_UploadTugas" />
+<!--        <activity android:name=".Fitur.Menu_Login" />-->
+<!--        <activity android:name=".Fitur.Menu_Register" />-->
+<!--        <activity android:name=".Anak.Features.Menu_KerjakanTugas" />-->
+<!--        <activity android:name=".Anak.Features.Menu_UploadTugas" />-->
         <activity android:name=".Anak.Features.Menu_Tugas" />
         <activity android:name=".Anak.Features.Menu_Profile" />
         <activity android:name=".Anak.Features.Menu_Notifikasi" />
@@ -68,27 +68,66 @@
 
         <activity
             android:name=".Utils.Portrait"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Anak.Features.Menu_SplashScreen">
+<!--        <activity android:name=".Anak.Features.Menu_SplashScreen">-->
+        <activity
+            android:name=".Anak.Features.Menu_SplashScreen"
+            android:excludeFromRecents="true"
+            android:label=""
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
-            android:name=".Anak.Fragment.Menu_Utama"
+            android:name=".Anak.Features.Menu_PopUp"
+            android:excludeFromRecents="true"
+            android:label="Menu Tugas"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Anak.Features.Menu_UploadTugas"
+            android:excludeFromRecents="true"
+            android:label="Menu Kirim Tugas"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Anak.Features.Menu_KerjakanTugas"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_menu__utama"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat" />
         <activity
+            android:name=".Anak.Fragment.Menu_Utama"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_menu__utama"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Fitur.Menu_Register"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_menu__utama"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Fitur.Menu_Login"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_menu__utama"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".Anak.Features.Menu_ResetPassword"
             android:excludeFromRecents="true"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Fragment.PasswordActivity"
             android:excludeFromRecents="true"
@@ -113,53 +152,53 @@
             android:name=".Anak.Features.Menu_RegisterPassword"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_Dashboard"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_LupaPassword"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_InputPassword"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_Masuk"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_ListSoal"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_SettingJadwal"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Features.Menu_ListAplikasi"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".Anak.Fragment.SplashActivity"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Anak.Features.Menu_ListJadwal"
             android:excludeFromRecents="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" /> <!-- <activity -->
+            android:theme="@style/Theme.AppCompat.NoActionBar" /> <!-- <activity -->
         <!-- android:name=".Anak.Features.Menu_Quiz" -->
         <!-- android:excludeFromRecents="true" -->
         <!-- android:label="@string/app_name" -->
@@ -170,13 +209,13 @@
             android:excludeFromRecents="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
-        <activity
-            android:name=".Anak.Features.Menu_PopUp"
-            android:excludeFromRecents="true"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+<!--        <activity-->
+<!--            android:name=".Anak.Features.Menu_PopUp"-->
+<!--            android:excludeFromRecents="true"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@style/Theme.AppCompat" />-->
 
         <receiver
             android:name=".Anak.Utils.BootComplete"

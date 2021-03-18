@@ -111,6 +111,8 @@ public class Menu_SettingJadwal extends AppCompatActivity implements MyControlle
         Calendar calendar = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             calendar = Calendar.getInstance();
+        }else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            calendar = Calendar.getInstance();
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -129,6 +131,8 @@ public class Menu_SettingJadwal extends AppCompatActivity implements MyControlle
     private void showTimestop() {
         Calendar calendar = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            calendar = Calendar.getInstance();
+        }else  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             calendar = Calendar.getInstance();
         }
 
