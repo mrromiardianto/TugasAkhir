@@ -95,18 +95,29 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
     }
 
     private void RequestMasuk(String Imei, String password) {
-    user.userlogin(Imei, password);
+        user.userlogin(Imei, password);
     }
 
-//    private void GotoReset() {
+    //    private void GotoReset() {
 //        Intent intent =new Intent(Menu_Login.this,Menu_LupaPassword.class);
 //        startActivity(intent);
 //        finish();
 //    }
     private void gotoMasuk(){
-        Intent intent =new Intent(Menu_Login.this, Daftar_Ponsel.class);
-        startActivity(intent);
-        finish();
+        String Role=sharedPrefManager.getRole();
+        Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
+        if (Role.equals("Anak")){
+            startActivity(new Intent(Menu_Login.this,Menu_Utama.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }else {
+            startActivity(new Intent(Menu_Login.this, Daftar_Ponsel.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
+//        Intent intent =new Intent(Menu_Login.this, Daftar_Ponsel.class);
+//        startActivity(intent);
+//        finish();
     }
 
 
