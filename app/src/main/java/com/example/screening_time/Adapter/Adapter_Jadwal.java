@@ -25,10 +25,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.screening_time.Anak.Features.Menu_EditJadwal;
 import com.example.screening_time.Anak.Features.Menu_ListJadwal;
 import com.example.screening_time.Anak.Features.Menu_SettingJadwal;
+import com.example.screening_time.Anak.Fragment.Menu_Utama;
 import com.example.screening_time.Anak.Server.Controller.Controller;
 import com.example.screening_time.Anak.Server.Controller.MyController;
+import com.example.screening_time.Fitur.Menu_Login;
+import com.example.screening_time.Fitur.OrangTua.Daftar_Ponsel;
 import com.example.screening_time.Model.Item_Jadwal;
 import com.example.screening_time.R;
+import com.example.screening_time.Session.SharedPrefManager;
 
 import java.util.List;
 
@@ -143,9 +147,22 @@ public class Adapter_Jadwal extends RecyclerView.Adapter<Adapter_Jadwal.MyViewHo
     @Override
     public void berhasilmasuk(String Message) {
         loading.show();
-        Toast.makeText(context, ""+Message, Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(context, Menu_ListJadwal.class);
-        context.startActivity(intent);
+//        Toast.makeText(context, Message, Toast.LENGTH_SHORT).show();
+//        Intent intent=new Intent(context, Menu_ListJadwal.class);
+//        context.startActivity(intent);
+        SharedPrefManager sharedPrefManager;
+        sharedPrefManager=new SharedPrefManager(context);
+        String Role=sharedPrefManager.getRole();
+//        Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
+        if (Role.equals("Anak")){
+           context.startActivity(new Intent(context, Menu_Utama.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+        }else {
+            context.startActivity(new Intent(context, Daftar_Ponsel.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+        }
 
     }
 

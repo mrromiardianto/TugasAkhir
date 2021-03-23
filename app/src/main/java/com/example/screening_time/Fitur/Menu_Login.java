@@ -59,10 +59,9 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
     }
 
     private void Check_Session() {
-
         if ( sharedPrefManager.getSudahLogin()) {
             String Role=sharedPrefManager.getRole();
-            Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
             if (Role.equals("Anak")){
                 startActivity(new Intent(Menu_Login.this,Menu_Utama.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -105,7 +104,7 @@ public class Menu_Login extends AppCompatActivity implements MyUser {
 //    }
     private void gotoMasuk(){
         String Role=sharedPrefManager.getRole();
-        Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
         if (Role.equals("Anak")){
             startActivity(new Intent(Menu_Login.this,Menu_Utama.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));

@@ -16,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -30,6 +31,8 @@ import com.example.screening_time.Anak.Server.Item.Item_Jadwal;
 import com.example.screening_time.Anak.Server.Response.Response_Jadwal;
 import com.example.screening_time.Anak.Session.SharedPrefManager;
 import com.example.screening_time.Anak.Utils.MyMarkerView;
+import com.example.screening_time.Fitur.Menu_Login;
+import com.example.screening_time.Fitur.OrangTua.Daftar_Ponsel;
 import com.example.screening_time.R;
 import com.github.mikephil.charting.charts.LineChart;
 
@@ -58,6 +61,7 @@ public class Menu_Statistic extends AppCompatActivity {
     LineChart mChart;
     ProgressDialog loading;
     SharedPrefManager sharedPrefManager;
+    com.example.screening_time.Session.SharedPrefManager sh;
     @BindView(R.id.list_usage)
     RecyclerView recyclerView;
     @BindView(R.id.Tanggal_statistic)
@@ -77,6 +81,7 @@ public class Menu_Statistic extends AppCompatActivity {
         ButterKnife.bind(this);
         loading =new ProgressDialog(this);
         sharedPrefManager=new SharedPrefManager(this);
+        sh=new com.example.screening_time.Session.SharedPrefManager(this);
         dataIndikator = new ArrayList<>();
         mChart.setTouchEnabled(true);
         mChart.setPinchZoom(true);
@@ -94,9 +99,14 @@ public class Menu_Statistic extends AppCompatActivity {
         Date FormatTanggal = new Date();
         Tanggal.setText(dateFormatter.format(FormatTanggal));
         Tanggal.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
-            showDateDialog();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    showDateDialog();
+                }else   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    showDateDialog();
+                }
             }
         });
         try {
@@ -108,7 +118,7 @@ public class Menu_Statistic extends AppCompatActivity {
     }
     private void Tampil_Usage(String Tanggal) {
         String imei=getIntent().getExtras().getString("imei");
-        Toast.makeText(this, imei, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, imei, Toast.LENGTH_SHORT).show();
         ApiServices api = InitRetrofit.getInstance().getApi();
         Call<Response_Jadwal> menuCall = api.tampil_usage(imei,Tanggal);
         menuCall.enqueue(new Callback<Response_Jadwal>() {
@@ -189,12 +199,13 @@ public class Menu_Statistic extends AppCompatActivity {
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
                     }
-
                         loading.dismiss();
                         Adapter_Usage adapter = new Adapter_Usage(Menu_Statistic.this, jadwal);
                         recyclerView.setAdapter(adapter);
+                        recyclerView.setVisibility(View.VISIBLE);
                     } else {
                         try {
+                            recyclerView.setVisibility(View.GONE);
                             loading.dismiss();
                             Toast.makeText(Menu_Statistic.this, "Tidak Ada data saat ini", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
@@ -304,25 +315,39 @@ public class Menu_Statistic extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent =new Intent(Menu_Statistic.this, Menu_Utama.class);
-        startActivity(intent);
-        finish();
+        String Role=sh.getRole();
+        Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
+        if (Role.equals("Anak")){
+            startActivity(new Intent(Menu_Statistic.this,Menu_Utama.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }else {
+            startActivity(new Intent(Menu_Statistic.this, Daftar_Ponsel.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
+//        Intent intent =new Intent(Menu_Statistic.this, Menu_Utama.class);
+//        startActivity(intent);
+//        finish();
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void showDateDialog() {
         Calendar newCalendar = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             newCalendar = Calendar.getInstance();
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            newCalendar = Calendar.getInstance();
+        } if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             datePickerDialog = new DatePickerDialog(Menu_Statistic.this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                     Calendar newDate = null;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         newDate = Calendar.getInstance();
                     }
                     newDate.set(year, monthOfYear, dayOfMonth);
                     Tanggal.setText(dateFormatter.format(newDate.getTime()));
+                    Tampil_Usage(Tanggal.getText().toString());
                     try {
 //                        Tampil_Usage(Tanggal.getText().toString());
                     } catch (Exception e) {

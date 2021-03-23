@@ -234,9 +234,10 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
     public void KirimTugas(String file){
         String id_tugas=getIntent().getExtras().getString("ID");
         String imei=getIntent().getExtras().getString("IMEI");
+        String nama=getIntent().getExtras().getString("NAMA");
         String filedata=file;
         String pacgkage=sharedPrefManager.getSPNama();
-        Call<ResponseBody> call = InitRetrofit.getInstance().getApi().KirimTugas(id_tugas,imei,filedata,pacgkage);
+        Call<ResponseBody> call = InitRetrofit.getInstance().getApi().KirimTugas(id_tugas,imei,filedata,pacgkage,nama);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

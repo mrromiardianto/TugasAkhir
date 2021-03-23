@@ -54,6 +54,7 @@ public class Adapter_Tugas extends RecyclerView.Adapter<Adapter_Tugas .MyViewHol
                 Intent varIntent = new Intent(context, Menu_KerjakanTugas.class);
                 varIntent.putExtra("ID", menu.get(position).getId());
                 varIntent.putExtra("IMEI", menu.get(position).getImei());
+                varIntent.putExtra("NAMA", menu.get(position).getNamaTugas());
 //                varIntent.putExtra("HARGA", menu.get(position).getHarga());
 //                varIntent.putExtra("DESKRIPSI", menu.get(position).getDeskripsi());
 //                varIntent.putExtra("GAMBAR_MENU", urlGambar);

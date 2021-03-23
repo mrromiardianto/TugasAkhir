@@ -118,9 +118,11 @@ public class Menu_PopUp extends AppCompatActivity implements MyController {
 
     @Override
     public void gagalmasuk(String Message) {
+//        Toast.makeText(this, "CROTNYA", Toast.LENGTH_SHORT).show();
         loading.dismiss();
         Package=getIntent().getExtras().getString("PACKAGE");
         Intent intent = getPackageManager().getLaunchIntentForPackage(Package);
+//        sharedPreference.removeLocked(context, appInfo.getPackageName());
 //        Toast.makeText(Menu_ListAplikasi.this, installedApps.get(i).packages, Toast.LENGTH_SHORT).show();
         startActivity(intent);
         finish();

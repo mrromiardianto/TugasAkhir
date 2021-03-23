@@ -347,6 +347,17 @@ public class AppCheckServices extends Service implements MyController {
                 if (runningTask.isEmpty()) {
                     Log.d(TAG,"isEmpty Yes");
                     mpackageName = "";
+
+                    final PackageManager pm = getApplicationContext().getPackageManager();
+                    ApplicationInfo ai;
+                    try {
+                        ai = pm.getApplicationInfo( previousApp, 0);
+                    } catch (final PackageManager.NameNotFoundException e) {
+                        ai = null;
+                    }
+                    final String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
+                    String Imei=sharedPrefManager.getSP_IMEI();
+                    controller.SimpanUsage(Imei,mpackageName,applicationName);
                 }else {
                     mpackageName = runningTask.get(runningTask.lastKey()).getPackageName();
                     String Mpakage=mpackageName;
@@ -362,7 +373,7 @@ public class AppCheckServices extends Service implements MyController {
                     }
                     final String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
                     String Imei=sharedPrefManager.getSP_IMEI();
-//                    controller.SimpanUsage(Imei,mpackageName,applicationName);
+                    controller.SimpanUsage(Imei,mpackageName,applicationName);
                 }
             }
 

@@ -64,6 +64,7 @@ public class Adapter_LaporanTugas extends RecyclerView.Adapter<Adapter_LaporanTu
 //        final String urlGambar = InitRetrofit.BASE_URL+"../Images/" + menu.get(position).getFoto();
 //        Picasso.with(context).load(urlGambar).into(holder.gambarmenu);
         holder.Packagename.setText(menu.get(position).getJsonMemberPackage());
+        holder.Nama.setText(menu.get(position).getNama());
         String UrlGambar= InitRetrofit.IP+"image/"+menu.get(position).getFile();
         Picasso.with(context).load(UrlGambar).into(holder.Gambarlaporan);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -213,7 +214,8 @@ public class Adapter_LaporanTugas extends RecyclerView.Adapter<Adapter_LaporanTu
         ImageView Gambarlaporan;
         @BindView(R.id.terima)
         Button Terima;
-
+        @BindView(R.id.nama_tugas)
+        TextView Nama;
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

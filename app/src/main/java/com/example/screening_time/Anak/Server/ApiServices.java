@@ -123,6 +123,7 @@ public interface ApiServices {
             @Field("id_tugas") String id_tugas,
             @Field("imei") String imei,
             @Field("file") String file,
-            @Field("package") String pakage
+            @Field("package") String pakage,
+            @Field("nama") String nama
     );
 }

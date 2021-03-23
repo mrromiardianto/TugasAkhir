@@ -22,6 +22,9 @@ public class Model_laporantugas implements Serializable {
 	@SerializedName("package")
 	private String jsonMemberPackage;
 
+	@SerializedName("nama_tugas")
+	private String nama;
+
 	public void setId(String id){
 		this.id = id;
 	}
@@ -62,6 +65,14 @@ public class Model_laporantugas implements Serializable {
 		return jsonMemberPackage;
 	}
 
+	public void setNama(String nama){
+		this.nama = nama;
+	}
+
+	public String getNama(){
+		return nama;
+	}
+
 	@Override
  	public String toString(){
 		return 
@@ -69,8 +80,9 @@ public class Model_laporantugas implements Serializable {
 			"id = '" + id + '\'' + 
 			",id_tugas = '" + idTugas + '\'' + 
 			",imei = '" + imei + '\'' + 
-			",file = '" + file + '\'' + 
-			",package = '" + jsonMemberPackage + '\'' + 
+			",file = '" + file + '\'' +
+					",nama = '" + nama + '\'' +
+					",package = '" + jsonMemberPackage + '\'' +
 			"}";
 		}
 }

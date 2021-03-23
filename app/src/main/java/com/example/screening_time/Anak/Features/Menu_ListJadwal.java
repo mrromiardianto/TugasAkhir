@@ -17,6 +17,8 @@ import com.example.screening_time.Anak.Server.InitRetrofit;
 import com.example.screening_time.Anak.Server.Item.Item_Jadwal;
 import com.example.screening_time.Anak.Server.Response.Response_Jadwal;
 import com.example.screening_time.Anak.Session.SharedPrefManager;
+import com.example.screening_time.Fitur.Menu_Login;
+import com.example.screening_time.Fitur.OrangTua.Daftar_Ponsel;
 import com.example.screening_time.R;
 
 import java.util.List;
@@ -33,6 +35,7 @@ public class Menu_ListJadwal extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressDialog loading;
     SharedPrefManager sharedPrefManager;
+    com.example.screening_time.Session.SharedPrefManager sh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class Menu_ListJadwal extends AppCompatActivity {
         setContentView(R.layout.activity_menu__list_jadwal);
         ButterKnife.bind(this);
         sharedPrefManager=new SharedPrefManager(this);
+        sh=new com.example.screening_time.Session.SharedPrefManager(this);
         loading=new ProgressDialog(Menu_ListJadwal.this);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager llm=new GridLayoutManager(this,1);
@@ -68,7 +72,7 @@ public class Menu_ListJadwal extends AppCompatActivity {
                     } else {
                         try {
                             loading.dismiss();
-                            Toast.makeText(Menu_ListJadwal.this, "Tidak Ada Soal saat ini", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Menu_ListJadwal.this, "Tidak Ada Jadwalsaat ini", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -96,8 +100,19 @@ public class Menu_ListJadwal extends AppCompatActivity {
 //        Intent intent = new Intent(Intent.ACTION_MAIN);
 //        intent.addCategory(Intent.CATEGORY_HOME);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Intent intent=new Intent(Menu_ListJadwal.this, Menu_Utama.class);
-        startActivity(intent);
-        finish();
+//        Intent intent=new Intent(Menu_ListJadwal.this, Menu_Utama.class);
+//        startActivity(intent);
+//        finish();
+        String Role=sh.getRole();
+//        Toast.makeText(this, Role, Toast.LENGTH_SHORT).show();
+        if (Role.equals("Anak")){
+            startActivity(new Intent(Menu_ListJadwal.this,Menu_Utama.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }else {
+            startActivity(new Intent(Menu_ListJadwal.this, Daftar_Ponsel.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
     }
     }

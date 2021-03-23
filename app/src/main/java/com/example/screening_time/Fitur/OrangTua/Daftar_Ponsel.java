@@ -112,9 +112,9 @@ public class Daftar_Ponsel extends AppCompatActivity implements MyDevice {
 
 
     private void back() {
-        Intent menuSebelumnya = new Intent(this, Menu_Dashboard.class);
-        startActivity(menuSebelumnya);
-        finish();
+//        Intent menuSebelumnya = new Intent(this, Menu_Dashboard.class);
+//        startActivity(menuSebelumnya);
+//        finish();
     }
 
     public void Logout(View view) {
